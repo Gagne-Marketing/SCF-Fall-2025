@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Quiz App</title>
+</head>
+<body>
+    <div id="Container">
+        <h1>Quiz Game</h1>
+        <div class="page" id="landing-page">
+            <h2>Welcome to the Quiz!</h2>
+            <!-- First screen, or "start menu" for our quiz app -->
+            <button id="btn-start">Start the Quiz</button>
+        </div>
+        <div class="page" id="quiz-page">
+            <!-- Second screen for the quiz game -->
+            <h2>This is the Quiz!</h2>
+            <div class="modal" id="win-modal">
+                <p>That's Correct!</p>
+                <button id="btn-win-end">End</button>
+            </div>
+            <div class="modal" id="loose-modal">
+                <p>Nope, try again?</p>
+                <button id="btn-try-again">Try Again</button>
+                <button id="btn-loose-end">End</button>
+            </div>
+            <button id="btn-check-answer">Check Answer</button>
+            <section id="quiz-question"></section>
+            <section id="quiz-message-box"></section>
+        </div>
+    </div>
+    <script type="text/javascript" src="./scripts/main.js"></script>
+</body>
+</html>

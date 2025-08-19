@@ -1,0 +1,16 @@
+.page{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    outline: 2px solid blue;
+    min-height: 600px;
+    min-width: 400px;
+    position: absolute;
+}
+
+.modal{
+    visibility: hidden;
+    position: absolute;
+    background-color: antiquewhite;
+    outline: 2px solid blue;
+}

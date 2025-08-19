@@ -1,0 +1,113 @@
+/* ========== Zero Stylesheet ========== */
+
+/* 1. Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Set base font and background */
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 4. Remove link underlines and inherit color */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 5. Remove image borders and make them responsive */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 6. Remove default fieldset and button styles */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* 7. Normalize form elements */
+button {
+  cursor: pointer;
+}
+textarea {
+  resize: vertical;
+}
+
+/* 8. HTML5 elements block display fix */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* 9. Table reset */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 10. Remove quotes from blockquotes and q elements */
+blockquote,
+q {
+  quotes: none;
+}
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+}
+
+/* 11. Set default root font size */
+html {
+  font-size: 100%; /* Use 16px as base unless overridden */
+}
+
+/* 12. Normalize strong/emphasis */
+strong,
+b {
+  font-weight: bold;
+}
+em,
+i {
+  font-style: italic;
+}

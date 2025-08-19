@@ -1,0 +1,222 @@
+/* Main Nav menu */
+.nav-container {
+  align-items: center;
+  display: flex;
+  background-color: #0b0023;
+  height: 80px;
+  width: 100%;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0; /* fixed colon here */
+  z-index: 1000;
+}
+
+nav ul {
+ margin: 0;
+ align-items: center;
+  font-size: 20px;
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+}
+
+a {
+  color: rgb(32, 195, 179);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+body {
+  padding-top: 80px;
+  background-color: black;
+}
+
+.black-ops-one-regular {
+  font-family: "Black Ops One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+  margin-top: 40px;
+  align-items: center;
+  height: 60px; /* fixed colon */
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+}
+
+footer {
+  margin-top: 0px;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #00cf79;
+  background-color:  #0b0023;
+  padding: 20px;
+}
+
+footer p {
+ font-family: Helvetica, sans-serif;
+ font-size: 16px;
+ font-weight: 400;
+ Color: white; /* Footer text color*/
+ margin: 0;
+
+}
+
+
+#Container {
+  background-color: #000000;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 10px;
+
+  display:flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: stretch;
+}
+
+#Column1, #Column2 {
+  width: calc(50% - 10px);
+  display: flex;
+  flex-direction: column; 
+  
+}
+
+#Column1 {
+  padding: 10px; 
+  background-color: #FFC857;
+  color: black; 
+  
+}
+
+#Column2 {
+  padding: 10px;
+  background-color: #3DDC97;
+  color: rgb(0, 0, 0);
+  display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+
+
+#Column2 ul {
+  list-style-type: disc;
+  padding-left: 40px;
+}
+
+h1 {
+  font-family: "Black Ops One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  display: block;
+  font-size: 48px;
+  color: #ffffff;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  color: #000000;
+  font-family: "Black Ops One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  font-family: Helvetica, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+  color: #000000; /* added missing semicolon */
+}
+
+#Column1 p,
+#Column2 p {
+  margin-bottom: 1em !important;
+}
+
+
+#Column2 ul {
+  margin-bottom: 1em; /* or any space you want */
+}
+
+form {
+  color:white;
+  
+}
+
+
+/* Media Queries */
+
+@media screen and (min-width: 1120px) {
+  body {
+    background-color: #000000;
+  }
+
+}
+
+/* Tablet view: 769px to 1119px */
+@media screen and (min-width: 769px) and (max-width: 1119px) {
+  #Column1,
+  #Column2 {
+    flex: 1 1 100%; /* stack columns if needed */
+    max-width: 100%;
+    border: 1px solid white;
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 36px; /* slightly smaller headings */
+  }
+
+  h2 {
+    text-align: center;
+  }
+}
+
+/* Mobile */
+
+@media screen and (max-width: 768px) {
+  #Column1,
+  #Column2 {
+   width: 100%;
+   display: block;
+ 
+    border: 1px solid white;
+    border-radius: 16px;
+  }
+
+  
+
+h1, h2, p, ul {
+      color: rgb(255, 255, 255);
+
+}
+
+h2 {
+    text-align:  center;
+  }
+
+
+  #Column1 {
+    background-color: #264653; /* new color for Column1 */
+  }
+
+  #Column2 {
+    background-color: #8A1253; /* new color for Column1 */
+  }
+  
+}
