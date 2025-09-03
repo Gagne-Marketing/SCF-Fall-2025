@@ -1,0 +1,287 @@
+
+
+.container {
+  max-width: 1120px;
+  margin: 3rem auto 0 auto;
+  padding: 0 16px; /* small side padding for phones */
+}
+
+.content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+body {
+  background: #fdfcfc;
+  margin: 0;
+}
+
+/* ==============================
+   NAV MENU (simple header bar)
+============================== */
+.site-header {
+  background: #000d97; /* blue bar full width */
+  color: #fff;
+  width: 100%;
+}
+
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.main-nav { text-align: center; flex: 1; }
+
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex; /* show links in one row */
+  gap: 20px;            /* space between links */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.nav-links a:hover { color: #00d4ff; }
+
+/* ==============================
+   TYPOGRAPHY
+============================== */
+h1 {
+  font-family: "Black Ops One", sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  color: #111;
+  text-align: center;
+  margin: 0 0 16px 0;
+}
+
+h2 {
+  font-family: "Black Ops One", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  color: #111;
+  margin: 0 0 12px 0;
+}
+
+p, li {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #111;
+}
+
+li { margin-bottom: 10px; }
+
+a { color: rgb(0, 209, 209); }
+a:hover { color: crimson; }
+
+/* ==============================
+   CTA HERO
+============================== */
+.cta-hero {
+  margin-top: 3rem;
+  height: 60vh;
+  background: url("Designer-6.jpg") center/cover no-repeat fixed;
+  position: relative;
+}
+.cta-overlay {
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  text-align: center;
+  background: rgba(29, 0, 88, 0.25);
+}
+.cta-overlay h2 {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: #fff;
+  color: #1d009f;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid blue;
+}
+/* ==============================
+   PROFILE IMAGES (Home/About)
+============================== */
+
+.profile-img,
+.img-fluid-profile-img-about {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 350px;   
+  margin: 0 auto;     
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  outline: 1px solid #0e0047;
+}
+
+.about-row .col-md-8 { padding-left: 24px; }
+
+/* ==============================
+   ACCORDION + TESTIMONIALS
+============================== */
+
+.accordion-flush {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+#testimonialsCarousel {
+  max-width: 1120px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+footer {
+  margin-top: 3rem;
+  background: #000d97;
+  color: #fff;
+  font-size: 16px;
+  padding-top: 16px;
+}
+footer h2 { color: #fff; }
+
+/* ==============================
+   HOME: PROJECT CARD GRID
+============================== */
+.projects {
+  max-width: 1120px;
+  margin: 3rem auto;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.projects-row {
+  display: flex;
+  flex-wrap: wrap;     
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  background: #000d36;
+  color: #fff;
+  width: 100%;
+  max-width: 320px;    /* card width cap */
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.project-card h2 {
+  font-size: 24px;
+  color: #fff;
+  margin: 0 0 8px 0;
+}
+
+.project-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0;
+}
+
+.project-card a { color: #8ecbff; }
+.project-card a:hover { color: #cfe9ff; }
+
+/* ==============================
+   PROJECTS PAGE: ALTERNATING LAYOUT
+============================== */
+.project-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;     
+}
+
+
+.project-row.reverse { flex-direction: row-reverse; }
+
+.project-image,
+.project-content {
+  flex: 1 1 480px;    
+  min-width: 280px;    
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  max-width: 560px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.project-content h2 {
+  font-size: 28px;
+  margin: 0 0 12px 0;
+}
+
+.project-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.project-content a {
+  color: #150089;
+  text-decoration: underline;
+}
+
+
+/* Stack neatly on phones; center images but keep text readable */
+@media (max-width: 768px) {
+  /* Stack the alternating rows on phones */
+  .project-row,
+  .project-row.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+   .project-content { text-align: left; }
+
+   .about-row .col-md-8 { padding-left: 0; margin-top: 16px; }
+}

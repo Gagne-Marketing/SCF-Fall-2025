@@ -6,13 +6,17 @@ const btnCheckAnswer = document.getElementById("btn-check-answer");
 const btnLooseTryAgain = document.getElementById("btn-try-again");
 const quizMessageBox = document.getElementById("quiz-message-box");
 const quizQuestion = document.getElementById("quiz-question");
-const quizLoseModal = document.getElementById("loose-modal");
+const quizLooseModal = document.getElementById("loose-modal");
 const quizWinModal = document.getElementById("win-modal");
 const btnLooseEnd = document.getElementById("btn-loose-end");
 const btnWinEnd = document.getElementById("btn-win-end");
+const scoreDisplay = document.getElementById("point_value");
+    
+
 
 let selectedAnswer = 0;
 let currentQuestionIndex = 0;
+let score = 0;
 
 btnStart.addEventListener('click', function(event){
     event.preventDefault();
@@ -25,32 +29,42 @@ btnCheckAnswer.addEventListener('click', function(event){
 btnLooseTryAgain.addEventListener('click', function(event){
     event.preventDefault();
     checkAnswer(quizQuestions[currentQuestionIndex]);
-    quizLoseModal.style.visibility = "hidden";
+    quizLooseModal.style.visibility = "hidden";
 });
 btnLooseEnd.addEventListener('click', function(event){
     event.preventDefault();
-    window.location.reload();
+endQuiz();
 });
 btnWinEnd.addEventListener('click', function(event){
     event.preventDefault();
-    window.location.reload();
+    endQuiz();
 });
+
+
+
 
 let quizQuestions = [
     {
         "question": "What color is the sky?",
         "answers": ['blue', 'red', 'yellow', 'turtles'],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 0,
+        "point_value": 4
+
+        
     },
     {
         "question": "What is the best sci-fi show the ***** Fox killed too soon?",
         "answers": ['star trek', 'star wars', 'babylon 5', 'firefly'],
-        "correctAnswerIndex": 3
+        "correctAnswerIndex": 3,
+        "point_value": 4
+       
     },
     {
         "question": "What is the greatest story ever told?",
-        "answers": ['Jurassic Park', 'the odysee', 'of mice and men', "the bible"],
-        "correctAnswerIndex": 0
+        "answers": [ 'the odysee', 'Jurassic Park', 'of mice and men', "the bible"],
+        "correctAnswerIndex": 1,
+        "point_value": 4
+        
     }
 ];
 
@@ -66,6 +80,8 @@ function setupQuizQuestion(question){
     questionText.innerText = question.question;
     quizQuestion.innerHTML = "";
     quizQuestion.appendChild(questionText);
+    btnCheckAnswer.disabled = false; // allow checking again on this question //
+
     //Create the unordered list to display the answers
     let answers = document.createElement("select");
     for(let i = 0; i < question.answers.length; i++){
@@ -78,16 +94,24 @@ function setupQuizQuestion(question){
         event.preventDefault();
         selectedAnswer = answers.value;
     });
+    selectedAnswer = 0;
     quizQuestion.appendChild(answers);
     quizMessageBox.innerHTML = "";
     quizWinModal.style.visibility = "hidden";
-    quizLoseModal.style.visibility = "hidden";
+    quizLooseModal.style.visibility = "hidden";
 }
 
 
 function checkAnswer(question){
-    if(selectedAnswer == question.correctAnswerIndex){
+    if(selectedAnswer == question.correctAnswerIndex){  // <-- this block runs if it is correct --> //
         quizMessageBox.innerHTML = "<p>Correct!</p>";
+
+        //< -- update and display score -->//
+        score += question.point_value;
+        scoreDisplay.innerHTML = "<p>Points: " + score + "</p>";
+        btnCheckAnswer.disabled = true;  // stop repeated clicks //
+
+        //create and display next button
         let nextButton = document.createElement("button");
         nextButton.innerText = "Next";
         nextButton.addEventListener("click", function(){
@@ -98,13 +122,18 @@ function checkAnswer(question){
             quizMessageBox.appendChild(nextButton);
         }
         else {
+            document.getElementById("final-score").textContent = "Final Points: " + score;
             quizWinModal.style.visibility = "visible";
+            
         }
     }
     else{
-        quizLoseModal.style.visibility = "visible";
+        quizLooseModal.style.visibility = "visible";
     }
 }
+
+
+
 
 hidePage(quizPage);
 
@@ -115,3 +144,14 @@ function showPage(pageToShow){
 function hidePage(pageToHide){
     pageToHide.style.visibility = "hidden";
 }
+
+function endQuiz(){
+    hidePage(quizPage);
+    showPage(landingPage);
+    score = 0;
+    quizWinModal.style.visibility = "hidden";
+    quizLooseModal.style.visibility = "hidden";
+    currentQuestionIndex = 0;
+    scoreDisplay.innerHTML = "Score: 0";
+}
+

@@ -8,18 +8,27 @@
 </head>
 <body>
     <div id="Container">
-        <h1>Quiz Game</h1>
+
+        <header class="site-header">
+      <h1>Quiz Game</h1>
+    </header>
+        
         <div class="page" id="landing-page">
             <h2>Welcome to the Quiz!</h2>
             <!-- First screen, or "start menu" for our quiz app -->
             <button id="btn-start">Start the Quiz</button>
         </div>
-        <div class="page" id="quiz-page">
+        
+        <div class="page" id="quiz-page"> 
+            
             <!-- Second screen for the quiz game -->
             <h2>This is the Quiz!</h2>
             <div class="modal" id="win-modal">
-                <p>That's Correct!</p>
+                
+                <p id="win-message">🎉 Congratulations!<br>You completed the quiz!</p>
+            <p id="final-score">Final Points: 0 points</p>
                 <button id="btn-win-end">End</button>
+                
             </div>
             <div class="modal" id="loose-modal">
                 <p>Nope, try again?</p>
@@ -29,7 +38,9 @@
             <button id="btn-check-answer">Check Answer</button>
             <section id="quiz-question"></section>
             <section id="quiz-message-box"></section>
+            <section id="point_value">Points:</section>
         </div>
+       
     </div>
     <script type="text/javascript" src="./scripts/main.js"></script>
 </body>
