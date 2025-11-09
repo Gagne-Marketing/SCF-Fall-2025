@@ -1,0 +1,521 @@
+/* =========================================
+   Index-Style.css  —  Sean Gagne Portfolio
+   System sans, clean layout, subtle depth
+========================================= */
+
+/* -----------------------------
+   Base + Tokens
+----------------------------- */
+:root{
+  --bg: #ffffff;
+  --text: #0f172a;          /* slate-900 */
+  --muted: #475569;         /* slate-600 */
+  --border: rgba(2,6,23,0.08);
+  --primary: #2563eb;       /* blue-600 */
+  --primary-contrast: #ffffff;
+}
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+               "Noto Sans", "Liberation Sans", Arial, "Apple Color Emoji",
+               "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  line-height: 1.55;
+}
+
+/* Content cap: 1120px across Bootstrap containers */
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl { max-width: 1120px !important; }
+
+/* Headings */
+h1,h2,h3,h4,h5,h6{ color: var(--text); }
+.h2{ font-weight: 800; }
+
+/* Links */
+a{ color: var(--primary); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* Buttons (light tweak; keeps Bootstrap look) */
+.btn-primary{
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.btn-primary:hover{ filter: brightness(0.95); }
+
+/* Focus ring */
+:focus-visible{
+  outline: 3px solid #93c5fd; /* blue-300 */
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link{
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #111827; /* gray-900 */
+  color: #fff;
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+  z-index: 9999;
+}
+.skip-link:focus{ left: .5rem; top: .5rem; }
+
+/* Section separators */
+.border-top{ border-top: 1px solid var(--border) !important; }
+
+/* -----------------------------
+   Header / Navbar
+----------------------------- */
+.site-header{
+  backdrop-filter: saturate(120%) blur(6px);
+}
+.site-header .navbar{ min-height: 64px; }
+.navbar-brand{ font-weight: 800 !important; letter-spacing: .5px; }
+.navbar .nav-link{
+  color: var(--muted);
+  font-weight: 600;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus{
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* -----------------------------
+   HERO (Consolidated)
+----------------------------- */
+.hero{
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+@supports (height: 100dvh){
+  .hero{ height: 80dvh; }
+}
+.hero__img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero::before{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
+  pointer-events: none;
+}
+.hero__overlay{
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  padding: 1.5rem;
+  gap: 20px;
+}
+.hero__title{
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 800;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+  font-size: clamp(2rem, 6vw, 3.25rem);
+}
+.hero__cta{ margin: 0; }
+@media (max-width: 991.98px){ .hero { height: 70vh; } }
+@media (max-width: 575.98px){ .hero { height: 56vh; } }
+
+
+/* -----------------------------
+   About
+----------------------------- */
+.about-photo{
+  width: 100%;
+  max-width: 245px;   /* medium size */
+  height: auto;
+  border-radius: 1rem;
+}
+
+/* -----------------------------
+   Certifications
+----------------------------- */
+#certs img{ filter: drop-shadow(0 1px 1px rgba(0,0,0,.05)); }
+
+/* -----------------------------
+   Cards / Projects
+----------------------------- */
+.project-card{
+  border: 1px solid var(--border);
+  border-radius: .85rem;
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.project-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 10px 24px rgba(0,0,0,.09);
+  border-color: rgba(2,6,23,0.12);
+}
+.project-card .card-img-top{
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+/* -----------------------------
+   Testimonials
+----------------------------- */
+#testimonials .carousel{
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.testimonial-item{ max-width: 820px; margin-inline: auto; }
+.testimonial-content{ font-size: 1.05rem; color: #111827; }
+
+/* -----------------------------
+   Bottom CTA band
+----------------------------- */
+.about-cta{
+  background: linear-gradient(180deg, rgba(15,23,42,1) 0%, rgba(2,6,23,1) 100%);
+  border-top: 1px solid var(--border);
+}
+.about-cta .btn{ font-weight: 700; }
+
+/* -----------------------------
+   Footer
+----------------------------- */
+.site-footer{ background: var(--bg); }
+
+/* -----------------------------
+   Utilities: Shadows + Reveal on Scroll
+----------------------------- */
+.shadow-soft{
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.05),
+    0 4px 12px rgba(0,0,0,.08);
+}
+.shadow-soft-hover:hover{
+  box-shadow:
+    0 2px 6px rgba(0,0,0,.06),
+    0 10px 24px rgba(0,0,0,.10);
+  transition: box-shadow .25s ease;
+}
+
+.reveal-on-scroll{
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal-on-scroll.in-view{
+  opacity: 1;
+  transform: none;
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  .reveal-on-scroll{
+    transition: none;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* -----------------------------
+   Accordion (FAQ) polish
+----------------------------- */
+.accordion-button{ font-weight: 600; }
+.accordion-button:focus{ box-shadow: none; }
+.accordion-button:not(.collapsed){
+  background-color: #f8fafc; /* slate-50 */
+  color: var(--text);
+}
+.accordion-item{ border-color: var(--border); }
+
+/* -----------------------------
+   Forms (footer)
+----------------------------- */
+.form-control:focus{
+  border-color: #93c5fd; /* blue-300 */
+  box-shadow: 0 0 0 .2rem rgba(147,197,253,.35);
+}
+/* Credential badges: larger + responsive */
+.cred-badges img {
+  height: 84px;         /* was 56px */
+  width: auto;          /* keep aspect ratio */
+}
+
+@media (min-width: 992px) {
+  .cred-badges img {
+    height: 96px;       /* a touch larger on desktops */
+  }
+}
+/* exact 20px spacing between H1 and button */
+.hero__overlay{ gap: 20px; }           /* we already use display:grid; place-items:center */
+.hero__title{ margin: 0; }             /* ensure no extra bottom margin */
+.hero__cta{ margin: 0; }               /* override any inherited margins */
+
+/* HERO: full-bleed cover, responsive heights */
+.hero{
+  position: relative;
+  width: 100%;
+  height: 80vh;          /* target height on larger screens */
+  min-height: 420px;     /* never too short */
+  overflow: hidden;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+/* Use dynamic viewport on modern mobile to prevent jumpiness */
+@supports (height: 100dvh) {
+  .hero { height: 80dvh; }
+}
+
+.hero__img{
+  display: block;
+  width: 100%;
+  height: 100%;          /* fill the hero container */
+  object-fit: cover;     /* keep it edge-to-edge, cropped nicely */
+  object-position: center;
+}
+
+/* Subtle dark overlay for title contrast */
+.hero::before{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
+}
+
+.hero__overlay{
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  padding: 1.5rem;
+  gap: 20px;             /* exact gap between H1 and button */
+}
+
+.hero__title{ margin: 0; color: #fff; text-align: center; font-size: clamp(2rem, 6vw, 3.25rem); font-weight: 800; line-height: 1.1; text-shadow: 0 2px 12px rgba(0,0,0,.35); }
+.hero__cta{ margin: 0; }
+
+/* Tweak heights for smaller screens so the hero doesn't dominate */
+@media (max-width: 991.98px){
+  .hero { height: 70vh; }
+}
+@media (max-width: 575.98px){
+  .hero { height: 56vh; }
+}
+/* Ensure hero is the viewport block (keep your current bg image rules) */
+.hero{
+  position: relative;
+  width: 100%;
+  height: 80vh;          /* or whatever you’re using */
+  min-height: 420px;
+  overflow: hidden;
+}
+
+/* Full-bleed background image stays as-is */
+.hero__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Overlay: center content and control spacing with gap (not margins) */
+.hero__overlay{
+  position: absolute;
+  inset: 0;
+  display: flex;                 /* stack H1 + button together */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;                     /* exact space between H1 and button */
+  padding: 1rem;                 /* small inner padding so it never hugs edges */
+}
+
+/* Kill default margins that add extra whitespace */
+.hero__title{
+  margin: 0;                     /* remove default h1 margins */
+  color: #fff;
+  text-align: center;
+  font-weight: 800;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+  font-size: clamp(2rem, 6vw, 3.25rem);
+}
+
+.hero__cta{
+  margin: 0;                     /* remove any top margin from utilities */
+}
+
+/* Optional: dark overlay for contrast (keep or remove as you like) */
+.hero::before{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
+  pointer-events: none;
+}
+/* Center the main nav list */
+#mainNav .navbar-collapse { width: 100%; }
+#mainNav .main-menu { margin: 0 auto; gap: .75rem; }
+#mainNav .main-menu .nav-link { padding: .25rem .75rem; }
+
+/* Optional: slightly larger on desktop */
+@media (min-width: 992px){
+  #mainNav .main-menu { gap: 1rem; }
+  #mainNav .main-menu .nav-link { padding: .25rem 1rem; }
+}
+/* Bigger brand */
+#mainNav .navbar-brand{
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem); /* scales up on larger screens */
+  line-height: 1;
+  letter-spacing: 0.5px;
+  padding-left: 1rem;                    /* subtle polish */
+}
+
+/* Keeps brand + toggler aligned nicely on mobile */
+@media (max-width: 991.98px){
+  #mainNav .navbar-brand{
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+}
+ /* Projects: layout, spacing, hovers */
+.projects-alt{ display: grid; gap: 2.75rem; }
+
+.project-row{
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+  grid-template-columns: 1.15fr 1fr; /* image | content */
+}
+
+/* Alternate by class (robust) */
+.project-row.reverse{
+  grid-template-columns: 1fr 1.15fr; /* content | image */
+}
+.project-row.reverse .project-image{ order: 2; }
+.project-row.reverse .project-content{ order: 1; }
+
+/* Clickable image + consistent frame */
+.project-image a{
+  display: block;
+  border-radius: .75rem;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  will-change: transform;
+}
+.project-image img{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;          /* consistent frame */
+  object-fit: cover;           /* visual crop for uniformity */
+  display: block;
+  transform: scale(1);
+  transition: transform .25s ease;
+}
+.project-image a:hover,
+.project-image a:focus-visible{
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06), 0 12px 28px rgba(0,0,0,.12);
+}
+.project-image a:hover img,
+.project-image a:focus-visible img{
+  transform: scale(1.03);
+}
+.project-image a:focus-visible{
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+@media (max-width: 991.98px){
+  .project-row{ grid-template-columns: 1fr; }
+  .project-row.reverse .project-image,
+  .project-row.reverse .project-content{ order: initial; }
+}
+@media (prefers-reduced-motion: reduce){
+  .project-image a, .project-image img{ transition: none !important; }
+  .project-image a:hover, .project-image a:focus-visible{
+    transform: none !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  .project-image a:hover img, .project-image a:focus-visible img{
+    transform: none !important;
+  }
+}
+
+
+ /* Header adjustments (brand left padding + size, centered nav keeps Bootstrap) */
+    .navbar-brand {
+      padding-left: 1rem; /* 1rem left padding */
+      font-size: 1.6rem;   /* slightly larger SG */
+      line-height: 1;
+    }
+
+    /* Projects alternating layout (no .reverse needed) */
+    .projects-alt {
+      display: grid;
+      gap: 2rem;
+    }
+    .project-row {
+      display: grid;
+      gap: 1.25rem;
+      align-items: center;
+      grid-template-columns: 1.15fr 1fr; /* image | content */
+    }
+    /* Auto alternate on even rows */
+    .projects-alt .project-row:nth-child(even) {
+      grid-template-columns: 1fr 1.15fr; /* content | image */
+    }
+    .projects-alt .project-row:nth-child(even) .project-image { order: 2; }
+    .projects-alt .project-row:nth-child(even) .project-content { order: 1; }
+
+    /* Image sizing: responsive, consistent width; keep source intact (no edits) */
+    .project-image img {
+      width: 100%;
+      height: auto;              /* no hard crop */
+      display: block;
+      border-radius: .5rem;
+    }
+
+    /* Content spacing */
+    .project-content h2 {
+      margin-bottom: .5rem;
+      font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+    }
+    .project-content p {
+      margin-bottom: 0;
+    }
+
+    /* Mobile stack */
+    @media (max-width: 992px) {
+      .project-row {
+        grid-template-columns: 1fr;
+      }
+      .projects-alt .project-row:nth-child(even) .project-image,
+      .projects-alt .project-row:nth-child(even) .project-content {
+        order: initial;
+      }
+    }
+
+    /* Footer: slim bar below the two-column section */
+    .footer-copy {
+      border-top: 1px solid rgba(0,0,0,.1);
+    }
+ 
+.foot-col { max-width: 520px; }
+
+
+
+

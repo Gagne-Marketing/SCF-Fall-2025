@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My First JavaScript Tools</title>
+  <link rel="stylesheet" href="Form.css" />
+  <!-- Defer ensures the DOM is ready before Script.js runs -->
+  <script src="Script.js" defer></script>
+</head>
+<body>
+  <main>
+    <!-- Name Form Section -->
+    <section>
+      <h2>JavaScript Form</h2>
+      <form id="nameForm" novalidate>
+        <label for="Name">Name:</label>
+        <input id="Name" name="Name" type="text" required />
+        <button id="NameSubmit" type="submit">Say Name</button>
+
+        <!-- Inline feedback area (JS can write here instead of alert) -->
+        <p id="nameMessage" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Calculator Section -->
+    <section>
+      <h2>Calculator Challenge</h2>
+      <form id="calculatorForm" novalidate>
+        <label for="X">X value:</label>
+        <!-- Allow decimals and show numeric keypad on mobile -->
+        <input name="X" id="X" type="number" step="any" required />
+
+        <label for="Operator">Operation:</label>
+        <select name="Operator" id="Operator">
+          <option value="+">+ (Add)</option>
+          <option value="-">- (Subtract)</option>
+          <option value="*">*</option>
+          <option value="/">/ (Divide)</option>
+        </select>
+
+        <label for="Y">Y value:</label>
+        <input name="Y" id="Y" type="number" step="any" required />
+
+        <button id="AddTwoNumbers" type="button">Calculate</button>
+
+        <!-- Result box with placeholder text and live region -->
+        <div id="resultBox" aria-live="polite">Result will appear here</div>
+
+        <!-- Optional inline error message area -->
+        <p id="calcMessage" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

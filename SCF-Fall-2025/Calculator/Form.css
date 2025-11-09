@@ -1,0 +1,426 @@
+/* ========================================
+   JAVASCRIPT FORM SECTION STYLES (TOP)
+   ======================================== */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML element */
+html {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Page wrapper */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    color: #ffffff;
+    padding: 2rem;
+}
+
+/* Main content container */
+main {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 0px;
+}
+
+/* Sections */
+section {
+    background: #fefeff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border: 1px solid rgb(15, 0, 80);
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+/* H2 headings */
+h2 {
+    color: #001f3e;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+/* JavaScript Form specific styles */
+#nameForm {
+    
+    display: grid;
+    gap: 0.5rem;
+    max-width: 50%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+/* JavaScript Form Labels */
+label[for="Name"] {
+    font-weight: bold;
+    color: #000753;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* JavaScript Form Input */
+#Name {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f5f5f5;
+    text-transform: capitalize;
+    transition: border-color 0.3s ease;
+}
+
+#Name:focus {
+    outline: 2px solid #0ecf28;
+    outline-offset: 2px;
+    border-color: #000000;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+#Name:required:invalid {
+    border-color: #000000;
+}
+
+/* JavaScript Form Button */
+#NameSubmit {
+    background-color: #001a56;
+    color: white;
+    padding: 12px 20px;
+    border: 2px solid #0047fa;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+#NameSubmit:hover {
+    background-color: #0011fb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#NameSubmit:active {
+    transform: translateY(0);
+}
+
+#NameSubmit:focus {
+    outline: 2px solid #0ecf28;
+    outline-offset: 2px;
+}
+
+/* JavaScript Form Message */
+#nameMessage {
+    margin: 0.25rem 0 0;
+    font-size: 0.95rem;
+    padding: 10px;
+    border-radius: 4px;
+    min-height: 20px;
+    background-color: #e8f5e8;
+    border-left: 4px solid #27ae60;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* ========================================
+   CALCULATOR SECTION STYLES (BOTTOM)
+   ======================================== */
+
+/* Calculator form (full width) */
+#calculatorForm {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+/* Calculator Form Labels */
+#calculatorForm label {
+    display: block;
+    font-weight: bold;
+    color: #000753;
+    margin-bottom: 5px;
+    grid-column: 1;
+    text-align: left;
+    padding-right: 15px;
+}
+
+label[for="X"] {
+    color: #000753;
+}
+
+label[for="Operator"] {
+    color: #000753;
+}
+
+label[for="Y"] {
+    color: #000753;
+}
+
+/* Calculator Form Inputs */
+#calculatorForm input,
+#calculatorForm select {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    grid-column: 2;
+}
+
+#calculatorForm button {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    grid-column: 1;
+    justify-self: end;
+    max-width: 150px;
+}
+
+#X {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f5f5f5;
+    text-align: right;
+    transition: border-color 0.3s ease;
+}
+
+#Y {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f5f5f5;
+    text-align: right;
+    transition: border-color 0.3s ease;
+}
+
+#X:focus,
+#Y:focus {
+    outline: 2px solid #0c9e50;
+    outline-offset: 2px;
+    border-color: #000000;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+#X:required:invalid,
+#Y:required:invalid {
+    border-color: #000000;
+}
+
+/* Calculator Select */
+#Operator {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#Operator:focus {
+    outline: 2px solid #0ecf28;
+    outline-offset: 2px;
+    border-color: #ededed;
+    box-shadow: 0 0 5px rgba(47, 59, 218, 0.3);
+}
+
+/* Option elements */
+option {
+    padding: 5px;
+}
+
+option[value="+"] {
+    background-color: #f7f7f7;
+}
+
+option[value="-"] {
+    background-color: #FFB6C1;
+}
+
+option[value="*"] {
+    background-color: #DDA0DD;
+}
+
+option[value="/"] {
+    background-color: #F0E68C;
+}
+
+/* Calculator Button */
+#AddTwoNumbers {
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 20px;
+    border: 2px solid #27ae60;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#AddTwoNumbers:hover {
+    background-color: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#AddTwoNumbers:active {
+    transform: translateY(0);
+}
+
+#AddTwoNumbers:focus {
+    outline: 2px solid #0ecf28;
+    outline-offset: 2px;
+}
+
+/* Calculator Result Box */
+#resultBox {
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ffffff;
+    min-height: 2rem;
+    background-color: #e9fbfe;
+    border: 2px solid #bee5eb;
+    color: #0c5460;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+
+
+/* ========================================
+   SHARED UTILITIES AND RESPONSIVE
+   ======================================== */
+
+/* Error state helper */
+.input-error {
+    border-color: #c62828 !important;
+}
+
+/* Accessibility and ARIA attributes */
+[aria-live="polite"] {
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Form validation states */
+.valid {
+    border-color: #27ae60 !important;
+    background-color: #d5f4e6 !important;
+}
+
+.invalid {
+    border-color: #e74c3c !important;
+    background-color: #fadbd8 !important;
+}
+
+.error-message {
+    color: #e74c3c !important;
+    background-color: #fadbd8 !important;
+    border-left-color: #e74c3c !important;
+}
+
+.success-message {
+    color: #27ae60 !important;
+    background-color: #d5f4e6 !important;
+    border-left-color: #27ae60 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    main {
+        padding: 15px;
+    }
+    
+    section {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    input, select, button {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+    
+    /* Revert calculator to mobile layout */
+    #calculatorForm {
+        grid-template-columns: 1fr;
+        align-items: end;
+    }
+    
+    #calculatorForm label {
+        grid-column: 1;
+        text-align: left;
+        padding-right: 0;
+    }
+    
+    #calculatorForm input,
+    #calculatorForm select,
+    #calculatorForm button {
+        grid-column: 1;
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    #nameForm {
+        gap: 12px;
+    }
+    
+    #calculatorForm {
+        gap: 12px;
+    }
+    
+    button {
+        padding: 15px;
+    }
+}

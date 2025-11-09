@@ -1,0 +1,296 @@
+/* Layout helpers */
+html, body { scroll-behavior: smooth; }
+
+/* Hide an element completely (no layout space) */
+.is-hidden { display: none !important; }
+
+/* Main pages */
+.page {
+  text-align: center;
+  background-color: rgb(190, 250, 255);
+  padding: 10px;
+  border-radius: 16px;
+  outline: 1px solid blue;
+  margin-top: 0;
+}
+
+#Container {
+  max-width: 1120px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 10px;
+}
+
+/* Header */
+.site-header {
+  background-color: #001c6a;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  margin-bottom: 12px;       /* a bit tighter */
+}
+.site-header h1 { margin: 0; }
+
+h1 {
+  font-size: 2.375rem;
+  color: #fff;
+}
+h2 {
+  font-size: 32px;
+  color: #111;
+  margin: 0 0 12px;          /* tighten heading → content gap */
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform .1s ease, background-color .2s ease;
+}
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+#btn-start {
+  display: block;
+  margin: 16px auto;
+  padding: 15px 30px;
+  font-size: 18px;
+}
+
+/* Quiz content */
+#quiz-question select {
+  width: 100%;
+  max-width: 420px;
+  font-size: 20px;
+  color: #111;              /* dark readable text */
+  background-color: #fff;   /* white background */
+}
+
+#quiz-question option {
+  color: #111;              /* make sure options have dark text */
+  background-color: #fff;   /* keep background white */
+}
+
+
+/* Modals (custom overlay) */
+/* Modals (custom overlay) */
+.modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.9);
+  display: none;               /* default hidden */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  z-index: 9999;
+}
+
+.modal { display: none; /* hidden by default */ }
+.modal[aria-hidden="false"] { display: flex; }
+.modal[aria-hidden="true"]  { display: none; }
+
+
+
+.modal p {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+/* Modal card content (white background) should be dark text */
+.modal-card {
+  background: #fff;
+  color: #111;
+  padding: 16px;
+  border-radius: 12px;
+  max-width: 520px;
+  width: calc(100% - 32px);
+  text-align: center;
+}
+
+/* Make sure paragraphs and headings inside modal-card are visible */
+.modal-card p,
+.modal-card h1,
+.modal-card h2,
+.modal-card h3,
+#final-score,
+#win-message {
+  color: #111 !important;
+}
+
+
+/* End Button */
+#btn-loose-end {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px 40px;
+  font-size: 18px;
+  border-radius: 16px;
+  margin-top: 10px;
+  transition: background-color .2s ease, transform .1s ease;
+}
+#btn-loose-end:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* === Quiz controls (centered, tidy) === */
+.controls {
+  margin: 1rem auto;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  max-width: 400px;
+  text-align: center;
+}
+.controls label,
+.controls strong {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+.controls .help {
+  font-size: .9rem;
+  color: #6b7280;
+  margin-top: 8px;
+}
+.qc-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.controls select {
+  appearance: none;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 120px;
+  font-size: 1rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.controls select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px #e8f0ff;   /* ✅ fixed: added size + color */
+}
+.qc-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+.qc-pills {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.qc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  font-size: .95rem;
+  transition: border-color .2s, background .2s;
+}
+.qc-pill:hover {
+  border-color: #cbd5e1;
+  background: #f9fafb;
+}
+.qc-pill input { accent-color: #2563eb; }
+.qc-disabled { opacity: .6; pointer-events: none; }
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+  .controls { max-width: 100%; }
+}
+
+
+.is-hidden { display: none !important; }
+
+/* Progress badge */
+.quiz-progress {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin: 8px 0 16px;
+}
+
+
+
+/* Keep the form matching your .controls card */
+#userQForm { text-align: center; }
+
+/* Field wrapper for clean spacing */
+.uq-field { margin: 8px auto; max-width: 520px; text-align: left; }
+
+/* Bigger, easy-to-type inputs */
+#userQForm input[type="text"],
+#userQForm select {
+  width: 100%;
+  max-width: 520px;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  display: block;
+}
+
+/* Two columns on wide screens for the bottom row only (correct + difficulty) */
+.uq-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  max-width: 520px;
+  margin: 8px auto;
+}
+@media (min-width: 560px) {
+  .uq-row { grid-template-columns: 1fr 1fr; }
+}
+
+/* Buttons centered */
+.uq-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* Optional: simple modal card so content isn’t edge-to-edge */
+.modal-card {
+  background: #fff;
+  color: #111;
+  padding: 16px;
+  border-radius: 12px;
+  max-width: 520px;
+  width: calc(100% - 32px);
+  text-align: center;
+}
+.modal-actions { display: flex; gap: 10px; justify-content: center; }
+
+
+
+
+
+
