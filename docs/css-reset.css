@@ -1,113 +1,107 @@
-/* ========== Zero Stylesheet ========== */
+/* =========================================================
+   css-reset.css — Modern, Bootstrap-friendly base reset
+   Safe defaults, accessibility first, minimal specificity
+   Load order: css-reset.css → Bootstrap CSS → Index-Style.css
+========================================================= */
 
-/* 1. Reset default margins and paddings */
-* {
-  margin: 0;
-  padding: 0;
+/* 1) Box sizing + media defaults */
+:where(*, *::before, *::after) {
   box-sizing: border-box;
 }
-
-/* 2. Set base font and background */
-body {
-  font-family: sans-serif;
-  line-height: 1.5;
-  background-color: #fff;
-  color: #000;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* 3. Remove list styles */
-ul,
-ol {
-  list-style: none;
-}
-
-/* 4. Remove link underlines and inherit color */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* 5. Remove image borders and make them responsive */
-img,
-picture,
-video,
-canvas,
-svg {
+:where(img, picture, video, canvas, svg) {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* 6. Remove default fieldset and button styles */
-button,
-input,
-select,
-textarea {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: none;
-  padding: 0;
+/* 2) Root + body typography */
+:where(html) {
+  -webkit-text-size-adjust: 100%;
+  font-size: 100%; /* 16px base unless overridden */
+  height: 100%;
+}
+:where(body) {
   margin: 0;
-  outline: none;
-  appearance: none;
-  -webkit-appearance: none;
+  min-height: 100%;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #0f172a; /* matches your site token slate-900 */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+               "Noto Sans", "Liberation Sans", Arial, "Apple Color Emoji",
+               "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* 7. Normalize form elements */
-button {
-  cursor: pointer;
+/* 3) Headings and text elements (no heavy opinion) */
+:where(h1, h2, h3, h4, h5, h6) {
+  margin: 0; /* you control spacing in your theme */
+  font-weight: inherit; /* let your theme set weights */
 }
-textarea {
-  resize: vertical;
+:where(p) {
+  margin: 0;
+}
+:where(b, strong) { font-weight: bolder; }
+:where(em, i) { font-style: italic; }
+
+/* 4) Lists */
+:where(ul, ol) {
+  margin: 0;
+  padding: 0;
+  /* list-style removed in theme where needed */
 }
 
-/* 8. HTML5 elements block display fix */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-nav,
-section,
-summary {
-  display: block;
+/* 5) Links (keep underlines by default; theme can change) */
+:where(a) {
+  color: inherit;            /* lets your theme define link color */
+  text-decoration-skip-ink: auto;
+  background-color: transparent;
 }
 
-/* 9. Table reset */
-table {
+/* 6) Tables */
+:where(table) {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* 10. Remove quotes from blockquotes and q elements */
-blockquote,
-q {
-  quotes: none;
+/* 7) Forms — do NOT nuke Bootstrap styles */
+:where(button, input, select, textarea) {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  margin: 0;
 }
-blockquote::before,
-blockquote::after,
-q::before,
-q::after {
-  content: '';
+:where(textarea) { resize: vertical; }
+:where(button) { cursor: pointer; }
+:where(button:disabled) { cursor: default; }
+:where(input::-ms-clear) { display: none; }
+:where(::placeholder) { opacity: 1; color: #64748b; } /* slate-500-ish */
+
+/* 8) Accessibility: focus-visible (non-destructive) */
+:where(:focus) { outline: none; }
+:where(:focus-visible) {
+  outline: 2px solid #93c5fd; /* blue-300 */
+  outline-offset: 2px;
 }
 
-/* 11. Set default root font size */
-html {
-  font-size: 100%; /* Use 16px as base unless overridden */
+/* 9) Block elements and semantic HTML5 */
+:where(article, aside, details, figcaption, figure,
+       footer, header, main, nav, section, summary) {
+  display: block;
 }
 
-/* 12. Normalize strong/emphasis */
-strong,
-b {
-  font-weight: bold;
-}
-em,
-i {
-  font-style: italic;
+/* 10) Quotations (avoid odd default quotes in some browsers) */
+:where(blockquote, q) { quotes: none; }
+:where(blockquote::before, blockquote::after,
+       q::before, q::after) { content: ""; }
+
+/* 11) Motion safety */
+@media (prefers-reduced-motion: reduce) {
+  :where(html) { scroll-behavior: auto !important; }
+  :where(*, *::before, *::after) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
